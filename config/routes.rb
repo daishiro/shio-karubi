@@ -59,3 +59,4 @@ ShioKarubi::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'pages#index'
 end
+
