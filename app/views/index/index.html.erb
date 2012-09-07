@@ -2,8 +2,8 @@
 <p>Find me in app/views/index/index.html.erb</p>
 
 <% unless session[:oauth] %>
-  <% form_tag :oauth, method: :get do |f| %>
-    <%= submit_tag '認証する' %>
+  <% form_tag :oauth, method: :get do %>
+    <%= submit_tag %>
   <% end %>
 <% else %>
   <div id="friends_timeline">
