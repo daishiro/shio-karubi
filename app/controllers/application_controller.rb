@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     OAuth::Consumer.new(
       '3wMmDB7RoWvRsrSB9kTj4g',
       'AFeco43tVoAG3e9MNYdybrC2vArOPSShNt9t7M9QVb0',
-      {site: "http://twitter.com"}
+      {site: "http://api.twitter.com"}
     )
   end
 end
