@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
   def index
     p 'index start'
-    p session[:oauth]
+    p 'session[:oauth]' + session[:oauth]
     
     return unless session[:oauth]
 
@@ -11,12 +11,12 @@ class IndexController < ApplicationController
       session[:oauth][:secret]
     )
     
-    p session[:oauth]
-    p access_token
+    p 'session[:oauth]' + session[:oauth]
+    p 'access_token' + access_token
     
     rubytter = OAuthRubytter.new(access_token)
 
-    p rubytter
+    p 'rubytter' + rubytter
     
     begin
       @tweets = rubytter.friends_timeline
