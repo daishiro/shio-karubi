@@ -1,20 +1,16 @@
 <h1>Index#index</h1>
 <p>Find me in app/views/index/index.html.erb</p>
 
-<!--<% unless session[:oauth] %>-->
-  <%= form_tag('/oauth', :method => :get) do %>
-    <%= submit_tag '塩カルビ好き？じゃ、押せ！！' %>
-  <% end %>
-<!--<% else %>-->
-  <div>
-    abc
-    <dl>
-      <%= @tweets.each do |t| %>
-      <dt><%= image_tag t.user.profile_image_url, size: '40x40' %></dt>
-      <dd><%= t.user.name %></dd>
-      <dd><%= t.text %></dd>
-      <% end %>
-    </dl>
-  </div>
-<!--<% end %>-->
-
+<%= form_tag('/oauth', :method => :get) do %>
+  <%= submit_tag '塩カルビ好き？じゃ、押せ！！' %>
+<% end %>
+<div>
+  <dl>
+    image<%= @tweets.each do |t| %>
+    <dt><%= image_tag t.user.profile_image_url, size: '40x40' %></dt>
+    <dd><%= t.user.name %></dd>
+    <dd><%= t.text %></dd>
+    <% end %>
+  </dl>
+</div>
+ppp
