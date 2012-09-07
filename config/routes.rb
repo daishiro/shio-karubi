@@ -10,6 +10,7 @@ ShioKarubi::Application.routes.draw do
   root to: "index#index", as: :index
   get "/oauth" => "index#oauth", as: :oauth
   get "/callback" => "index#callback", as: :callback
+  get "/logout" => "index#logout", as: :logout
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,8 +1,7 @@
 class IndexController < ApplicationController
+
+  #index.....
   def index
-    p 'index start'
-    p 'session[:oauth]' 
-    p session[:oauth]
     
     return unless session[:oauth]
 
@@ -11,22 +10,12 @@ class IndexController < ApplicationController
       session[:oauth][:token],
       session[:oauth][:secret]
     )
-    
-    p 'session[:oauth]' 
-    p session[:oauth]
-    p 'access_token'
-    p access_token
-    
-    rubytter = OAuthRubytter.new(access_token)
-
-    p 'rubytter'
-    p rubytter
+        
+    rt = OAuthRubytter.new(access_token)
     
     begin
-      @tweets = rubytter.friends_timeline
-      p @tweets
+      @tweets = rt.friends_timeline
     rescue Rubytter::APIError
-       p 'Rubytter::APIError'
       session.delete :oauth
     end
   end
@@ -39,7 +28,6 @@ class IndexController < ApplicationController
       token: request_token.token,
       secret: request_token.secret
     }
-    
     redirect_to request_token.authorize_url
   end
 
@@ -69,4 +57,10 @@ class IndexController < ApplicationController
     redirect_to :index
   end
 
+  def logout
+    session.delete :oauth
+    redirect_to :index  
+  end
+
 end
+

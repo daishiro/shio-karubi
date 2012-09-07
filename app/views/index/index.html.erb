@@ -2,11 +2,14 @@
 <p>Find me in app/views/index/index.html.erb</p>
 
 <% unless session[:oauth] %>
-<%= form_tag('/oauth', :method => :get) do %>
-  <%= submit_tag '塩カルビ好き？じゃ、押せ！！' %>
-<% end %>
+  <%= form_tag('/oauth', :method => :get) do %>
+    <%= submit_tag '塩カルビ好き？じゃ、押せ！！' %>
+  <% end %>
 <% else %>
-  <div id="friends_timeline">
+  <%= form_tag('/logout', :method => :get) do %>
+    <%= submit_tag '満足かい？この豚野郎！！' %>
+  <% end %>
+  <div>
     <dl>
       <% @tweets.each do |t| %>
       <dt><%= image_tag t.user.profile_image_url, size: '40x40' %></dt>
@@ -16,5 +19,4 @@
     </dl>
   </div>
 <% end %>
-
 
