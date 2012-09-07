@@ -12,9 +12,12 @@ class IndexController < ApplicationController
     )
     
     p session[:oauth]
-
+    p access_token
+    
     rubytter = OAuthRubytter.new(access_token)
 
+    p rubytter
+    
     begin
       @tweets = rubytter.friends_timeline
       p @tweets
