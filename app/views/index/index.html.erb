@@ -2,7 +2,9 @@
 <p>Find me in app/views/index/index.html.erb</p>
 
 <% unless session[:oauth] %>
-  <a href="/oauth">塩カルビ好き？じゃ、押せ！！</a>
+  <% form_tag :oauth, method: :get do |f| %>
+    <%= submit_tag '認証する' %>
+  <% end %>
 <% else %>
   <div id="friends_timeline">
     <dl>
