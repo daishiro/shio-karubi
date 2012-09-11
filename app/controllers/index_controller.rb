@@ -2,7 +2,7 @@ class IndexController < ApplicationController
 
   #index.....
   def index
-    
+  
     return unless session[:oauth]
 
     access_token = OAuth::AccessToken.new(
@@ -11,15 +11,16 @@ class IndexController < ApplicationController
       session[:oauth][:secret]
     )
         
-    rt = OAuthRubytter.new(access_token)
+    oauth_rubytter = OAuthRubytter.new(access_token)
     
     begin
-      @tweets = rt.friends_timeline
+      @twitter = oauth_rubytter.friends_timeline
     rescue Rubytter::APIError
       session.delete :oauth
     end
   end
 
+  #oauth.....
   def oauth
     callback_url = "http://shio-karubi.herokuapp.com/callback"
     request_token = self.class.consumer.get_request_token(oauth_callback: callback_url)
@@ -31,6 +32,7 @@ class IndexController < ApplicationController
     redirect_to request_token.authorize_url
   end
 
+  #callback.....
   def callback
     if params[:denied]
       session.delete :oauth
@@ -57,6 +59,7 @@ class IndexController < ApplicationController
     redirect_to :index
   end
 
+  #logout.....
   def logout
     session.delete :oauth
     redirect_to :index  

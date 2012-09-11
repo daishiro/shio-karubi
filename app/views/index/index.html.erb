@@ -11,8 +11,8 @@
   <% end %>
   <div>
     <dl>
-      <% @tweets.each do |t| %>
-      <dt><%= image_tag t.user.profile_image_url, size: '40x40' %></dt>
+      <% @twitter.each do |t| %>
+      <dt><%= image_tag t.user.profile_image_url, size: '30x30' %></dt>
       <dd><%= t.user.name %></dd>
       <dd><%= t.text %></dd>
       <% end %>
