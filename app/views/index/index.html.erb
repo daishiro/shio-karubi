@@ -12,8 +12,17 @@
   <div>
     <dl>
       <% @twitter.each do |t| %>
-      <dt><%= image_tag t.user.profile_image_url, size: '30x30' %></dt>
-      <dd><%= t.user.name %></dd>
+      <dd>##########user##########</dd>
+      <dd>user.id => <%= t.user.id %></dd>
+      <dd>user.name => <%= t.user.name %></dd>
+      <dd>user.screen_name => <%= t.user.screen_name %></dd>
+      <dt>user.profile_image_url => <%= image_tag t.user.profile_image_url, size: '30x30' %></dt>
+      <dd>user.sdescription => <%= t.user.description %></dd>
+      <dd>user.followers_count=> <%= t.user.followers_count %></dd>
+      <dd>user.friends_count => <%= t.user.friends_count %></dd>
+      <dd>user.location => <%= t.user.location %></dd>
+      <dd>user.friends_count => <%= t.user.friends_count %></dd>
+      <dd>##########tweet##########</dd>
       <dd><%= t.text %></dd>
       <% end %>
     </dl>
