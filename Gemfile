@@ -20,6 +20,7 @@ end
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rubytter'
+gem 'thin'
 
 group :test, :development do
   gem 'sqlite3'
@@ -29,7 +30,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'thin'
 end
 
 # To use ActiveModel has_secure_password
